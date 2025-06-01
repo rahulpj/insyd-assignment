@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
@@ -9,8 +8,7 @@ import commentRoutes from "./routes/commentRoutes.js";
 import likeRoutes from "./routes/likeRoutes.js";
 import notificationRoutes from "./routes/notificationRoutes.js";
 import followRoutes from "./routes/followRoutes.js";
-import { fileURLToPath } from "url";
-import path from "path";
+
 dotenv.config();
 
 const app = express();
@@ -22,7 +20,6 @@ app.get("/health", (req, res) => {
   res.json({ msg: "health ok" });
 });
 app.use(express.json());
-
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
